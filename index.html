@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#244c40"><meta name="description" content="在森林里遇见汉字：语音找字、动态笔顺、教材阅读与文学积累。">
+  <title>字在森林 · 语音识字、汉字笔顺与记忆闪卡</title>
+  <meta name="robots" content="index,follow"><link rel="canonical" href="https://hanzi-forest-adventure.honestfrog35.chatgpt.site/">
+  <meta property="og:title" content="字在森林 · 汉字探险"><meta property="og:description" content="面向小学生的语音识字、双字笔顺、字词词典、课文语境和间隔复习工具。">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"字在森林","applicationCategory":"EducationalApplication","inLanguage":"zh-CN","description":"语音识字、动态笔顺、字词释义、课文语境和记忆闪卡。","url":"https://hanzi-forest-adventure.honestfrog35.chatgpt.site/"}</script>
+  <link rel="stylesheet" href="style.css?v=20261021-3">
+  <script defer src="vendor/hanzi-writer.js"></script><script defer src="vendor/pinyin-pro.js"></script><script defer src="speech-gate.js"></script><script defer src="data-loader.js"></script><script defer src="vendor/md5.min.js"></script><script defer src="app.js?v=20261021-5"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="./"><span class="brand-icon">字</span><span>字在森林<small>每个汉字，都是一场发现</small></span></a>
+  <div class="side-label">我的探索旅程</div>
+  <nav aria-label="主导航">
+    <button class="nav active" data-view="learn"><span>⌘</span> 汉字探索 <i>01</i></button>
+    <button class="nav" data-view="atlas"><span>▦</span> 汉字地图 <i>02</i></button>
+    <button class="nav" data-view="reading"><span>▤</span> 课本与美文 <i>03</i></button>
+    <button class="nav" data-view="collection"><span>☆</span> 我的收藏 <i>04</i></button>
+  </nav>
+  <div class="journey"><span class="tiny">正在点亮的森林</span><div class="journey-title">一字一片叶 <span>✧</span></div><div class="progress"><div id="progress"></div></div><p>已练习 <b id="learned-count">0</b> 个汉字<br>慢慢来，每一步都算数。</p></div>
+  <div class="side-bottom"><span class="leaf-mark">❧</span><p>从课本出发<br>走进更辽阔的文字世界</p><button id="sources-button">资料与版本说明 ↗</button></div>
+</aside>
+<main>
+  <header><div class="breadcrumb">探索营地 <span>/</span> <b id="view-label">汉字探索</b></div><div class="header-right"><button id="sound-button" aria-pressed="false">♫ 音效关</button><span class="profile">小</span><span>小小探险家</span></div></header>
+  <section class="hero">
+    <div class="hero-copy"><div class="eyebrow"><span></span> THE FOREST OF CHARACTERS</div><h1>一笔一画，<br>发现汉字的奇妙世界。</h1><p>听一个字，写一个字，读懂一个新的世界。</p><button id="hero-voice" class="hero-voice">♩ 说说你想认识的字 <span>↗</span></button></div>
+    <svg class="landscape" viewBox="0 0 700 360" aria-label="青绿山野中，戴叶子帽的原创森林向导沿小路出发" role="img">
+      <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#e3ecce"/><stop offset="1" stop-color="#f4e8c4"/></linearGradient><linearGradient id="hill" x2="0" y2="1"><stop stop-color="#849d79"/><stop offset="1" stop-color="#557c65"/></linearGradient></defs>
+      <path fill="url(#sky)" d="M0 0H700V360H0z"/><circle cx="511" cy="85" r="38" fill="#fff5c7"/>
+      <path d="M58 225 190 69 279 177 361 63 472 198 566 104 700 222V360H0Z" fill="#becbb0"/>
+      <path d="m190 69-37 65 39-18 36 18zm171-6-37 59 36-14 35 23z" fill="#e3e9cf"/>
+      <path d="M0 265Q120 130 250 229T490 208T700 208V360H0" fill="#9cb591"/>
+      <path d="M-50 344Q128 195 290 286T700 242V360H0" fill="url(#hill)"/>
+      <path d="M441 211Q362 236 420 266T370 360H530Q491 307 476 286T477 236Z" fill="#e4d8ad"/>
+      <path d="M0 348Q183 292 362 360M546 360Q621 308 710 321" fill="none" stroke="#426c54" stroke-width="50"/>
+      <g fill="#3c634d"><path d="m74 135-44 108h31l-43 62h115l-43-62h29z"/><path d="m628 114-37 95h23l-38 64h103l-38-64h25z"/><path d="m672 180-28 74h18l-27 48h78l-29-48h19z"/></g>
+      <g stroke="#645e3d" stroke-width="8"><path d="M75 275v46M628 250v48"/></g>
+      <g transform="translate(413 220)"><ellipse cx="0" cy="91" rx="28" ry="7" fill="#55795b" opacity=".3"/><path d="m-13 62-6 28m30-28 6 28" stroke="#5a523b" stroke-width="9" stroke-linecap="round"/><path d="M-17 27Q-33 48-20 71L21 71Q30 44 13 27Z" fill="#315f48"/><path d="m-16 34-17 26m49-26 12 22" stroke="#d6b882" stroke-width="9" stroke-linecap="round"/><path d="M30 42v49" stroke="#785e3d" stroke-width="5"/><ellipse cy="15" rx="24" ry="25" fill="#efcf97"/><path d="M-27 6Q-27-13 16-27L29 7Z" fill="#476d42"/><path d="M-15-7Q-13-45 29-40 32-16-15-7" fill="#8caa56"/><path d="m-13-10 30-23" stroke="#547743" stroke-width="2"/><circle cx="-8" cy="17" r="2.5" fill="#37493e"/><circle cx="8" cy="17" r="2.5" fill="#37493e"/><path d="M-4 27q5 4 10-1" stroke="#a77850" stroke-width="2" fill="none"/><path d="M-18 38 17 59" stroke="#d5bb70" stroke-width="5"/></g>
+      <g fill="#f3d779"><circle cx="166" cy="306" r="4"/><circle cx="210" cy="324" r="3"/><circle cx="569" cy="302" r="4"/><circle cx="583" cy="319" r="3"/></g><g fill="#fffce1"><path d="m318 172 3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="m547 149 2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></g>
+    </svg>
+    <div class="guide-bubble">我是小叶，陪你一起探索！</div><span class="hero-caption">第一站 · 万物有名字</span>
+  </section>
+  <section class="voice-station"><button id="mic" class="voice-orb" aria-label="点击说出一个或两个汉字"><span class="mic-symbol">♩</span><span class="sound-wave"><i></i><i></i><i></i><i></i><i></i></span></button><div class="voice-copy"><h2 id="voice-title">点一下，把汉字说给小叶听</h2><p id="voice-subtitle">说“山”，也可以说“山水” · 一次探索两个字，笔顺自动播放</p></div><div class="voice-examples"><span>试着说</span><button data-pair="山水">山水</button><button data-pair="日月">日月</button><button data-pair="花草">花草</button></div></section>
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+  <section id="learn-view">
+    <div class="section-heading"><h2>今天，认识一个新朋友 <span>✧</span></h2><button id="random">换个字探索 ↻</button></div>
+    <div class="learning-grid">
+      <div id="character-deck" class="character-deck"></div>
+      <div class="reading-column">
+        <article class="card lesson-card">
+          <div class="card-top"><h3><span class="square-icon">▤</span> 在课本里遇见它</h3><span class="little-label">语境记忆</span></div>
+          <div id="textbook-content"></div>
+        </article>
+        <article class="card literature-card">
+          <div class="card-top"><h3><span class="square-icon gold">✧</span> 把好句子装进口袋</h3><span class="little-label">文学与写作</span></div><div class="dictionary-tabs"><button data-dict="all" class="active">两本辞典</button><button data-dict="literature">文学描写</button><button data-dict="writing">写作借鉴</button></div>
+          <div id="literature-content"></div>
+        </article>
+      </div>
+    </div>
+    <div class="bottom-grid"><article class="guide-card"><div class="guide-face">♧</div><div><h3>小叶的探索提示</h3><p id="guide-tip">“山”像三座连在一起的山峰。你还在哪里见过它？</p><button id="guide-read">听小叶说 ◖))</button></div></article><article class="next-card"><div><span class="tiny">再走一小步</span><h3>下一个字，会遇见什么？</h3><p>让好奇心带路，收集你的汉字森林。</p></div><button id="next" aria-label="学习下一个字">→</button></article></div>
+  </section>
+  <section id="atlas-view" class="hidden card full-panel"><div class="section-heading"><div><span class="eyebrow">CHARACTER ATLAS</span><h2>一整片汉字森林</h2></div><span id="atlas-count"></span></div><p class="muted">先认识课本里的字，再探索规范字表中的新朋友。点击汉字开始学习，也可以点击麦克风直接说。</p><div class="filter-row"><button class="chip active" data-filter="textbook">教材出现字</button><button class="chip" data-filter="all">全部规范字</button><button class="chip" data-filter="1">一级字</button><button class="chip" data-filter="2">二级字</button><button class="chip" data-filter="3">三级字</button></div><div id="atlas-grid" class="atlas-grid"></div><div class="pagination"><button id="prev-page">← 上一页</button><span id="page-label"></span><button id="next-page">下一页 →</button></div></section>
+  <section id="reading-view" class="hidden card full-panel"><div class="section-heading"><h2>课本与美文书架</h2><span class="pill">你的素材书库</span></div><p class="muted">检索原书中的语句，点击来源可核对扫描原页。机器识别内容须核对后学习。</p><div id="book-list" class="book-list"></div><form id="reading-form" class="reading-search"><input id="reading-query" aria-label="搜索书库" placeholder="找一个词或一句话，例如：春天"><button class="primary">搜索书库</button></form><div id="reading-results"></div></section>
+  <section id="dictionary-view" class="hidden card full-panel"><button class="lexicon-back" data-view="learn">← 回到汉字探索</button><div id="dictionary-content" aria-live="polite"></div></section>
+  <section id="collection-view" class="hidden card full-panel"><h2>我的汉字口袋</h2><p class="muted">收藏想再见面的字。学习记录只保存在这台设备的浏览器里。</p><div id="collection-grid" class="atlas-grid"></div><button id="review" class="primary">开始复习</button></section>
+  <footer><span>字在森林 · 让认识，变成喜欢</span><button id="footer-sources">数据来源与学习说明</button><span>每天一点点，世界大一点。</span></footer>
+</main>
+<dialog id="source-dialog"><button class="dialog-close" aria-label="关闭">×</button><h2>这片森林里的书</h2><div id="source-details"></div></dialog>
+<dialog id="page-dialog"><button class="dialog-close" aria-label="关闭">×</button><h2 id="page-title">原书扫描页</h2><p class="small-note">页码为 PDF 文件顺序页，可能不同于书内印刷页码。</p><img id="page-image" alt="原书扫描页"><div class="pagination"><button id="source-prev">← 前页</button><button id="source-next">后页 →</button></div></dialog>
+</body></html>
